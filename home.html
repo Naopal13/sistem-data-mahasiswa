@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Data Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Sistem Data Mahasiswa</h1>
+                <p>Kelola data mahasiswa dengan mudah dan modern</p>
+            </div>
+        </header>
+
+        <!-- Form Section -->
+        <section class="form-section" id="formSection">
+            <div class="form-container">
+                <h2><i class="fas fa-user-plus"></i> Input Data Mahasiswa</h2>
+                <form id="studentForm" class="student-form">
+                    <div class="form-group">
+                        <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="npm"><i class="fas fa-id-card"></i> NPM</label>
+                        <input type="number" id="npm" name="npm" placeholder="Masukkan NPM" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenisKelamin"><i class="fas fa-venus-mars"></i> Jenis Kelamin</label>
+                        <select id="jenisKelamin" name="jenisKelamin" required>
+                            <option value="">Pilih jenis kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ttl"><i class="fas fa-calendar-alt"></i> Tempat Tanggal Lahir</label>
+                        <input type="text" id="ttl" name="ttl" placeholder="Contoh: Jakarta, 15 Januari 2000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alamat"><i class="fas fa-map-marker-alt"></i> Alamat Domisili</label>
+                        <textarea id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tahunMasuk"><i class="fas fa-door-open"></i> Tahun Masuk</label>
+                        <input type="number" id="tahunMasuk" name="tahunMasuk" min="2000" max="2030" placeholder="Contoh: 2020" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ipk"><i class="fas fa-star"></i> IPK</label>
+                        <input type="number" id="ipk" name="ipk" step="0.01" min="0" max="4" placeholder="Contoh: 3.75" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Tambah Mahasiswa
+                        </button>
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fas fa-undo"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Data Collection Section -->
+        <section class="collection-section" id="collectionSection" style="display: none;">
+            <div class="collection-container">
+                <div class="collection-header">
+                    <h2><i class="fas fa-database"></i> Koleksi Data Mahasiswa</h2>
+                    <div class="collection-stats">
+                        <span class="stat-item">
+                            <i class="fas fa-users"></i>
+                            Total: <span id="totalStudents">0</span> Mahasiswa
+                        </span>
+                        <span class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            Cumlaude: <span id="cumloudeCount">0</span>
+                        </span>
+                    </div>
+                    <div class="collection-actions">
+                        <button class="btn btn-success" onclick="exportData()">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                        <button class="btn btn-danger" onclick="clearAllData()">
+                            <i class="fas fa-trash"></i> Hapus Semua
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="studentsContainer" class="students-grid">
+                    <!-- Student cards will be inserted here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
